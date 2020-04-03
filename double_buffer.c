@@ -27,10 +27,10 @@ uint32_t dac_output[2*BUFFER]
 
 void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef* hadc)
 {
-	memcpy(dac_output, adc_input, FILTER_BUFFER*sizeof(adc_input[0]));
+	memcpy(dac_output, adc_input, BUFFER*sizeof(adc_input[0]));
 }
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
 {
-	memcpy(dac_output+FILTER_BUFFER, adc_input+FILTER_BUFFER, FILTER_BUFFER*sizeof(adc_input[0]));
+	memcpy(dac_output+FILTER_BUFFER, adc_input+BUFFER, BUFFER*sizeof(adc_input[0]));
 }
