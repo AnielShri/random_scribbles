@@ -1,5 +1,3 @@
-
-#NoEnv
 #SingleInstance Force
 #MaxThreadsPerHotkey 2
 SendMode Input
@@ -7,7 +5,7 @@ SendMode Input
 cd_interval := 200
 spell_2 := 0
 
-#IfWinActive, Diablo III
+#If WinActive("Diablo III")
 {	
 	Numpad2::
 	{
@@ -24,19 +22,10 @@ spell_2 := 0
 	return
 }
 
-#if
-{
-	if(spell_2 != 0)
-	{
-		SetTimer "Spell_2_On_CD", 0	
-	}
-}
-
-
 Spell_2_On_CD()
 {
-	color := PixelGetColor(X, Y , Mode)
-	if(color == "")
+	color := PixelGetColor(482, 668)
+	if(color == "0x75735D")
 	{
 		Send "{2}"
 	}
